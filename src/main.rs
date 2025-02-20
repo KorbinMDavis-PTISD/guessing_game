@@ -1,13 +1,13 @@
 /*!
 *  A Simple Guessing Game
-* 
+*
 *  Depends on the rand Crate
 */
 
 // Bring the Input/Output Library into scope
 // The Input/Output Library is part of the Standard Library: std
-use std::{cmp::Ordering, io}; // Use the Input/Output Library
-use rand::Rng; // Use the Rng Library from Rand
+use rand::Rng;
+use std::{cmp::Ordering, io}; // Use the Input/Output Library // Use the Rng Library from Rand
 
 fn main() {
     println!("Guess a number!");
@@ -23,10 +23,9 @@ fn main() {
         // io::stdin().read_line(&mut guess).expect("Failed to read line");
         io::stdin() // Can also use std::io::stdin() without the use at the top
             .read_line(&mut guess) // Appends the user input from console to guess
-                                // & is a reference and &mut is a mutable reference
+            // & is a reference and &mut is a mutable reference
             .expect("Failed to read line"); // If read_line() returns 'err',
                                             // expect() will catch it
-
 
         // Shadow a new guess variable over the old one
         // trim() Removes leading and trailing whitespace
@@ -41,7 +40,7 @@ fn main() {
             Ok(num) => num,
             Err(_) => continue,
         };
-        
+
         println!("You guessed: {}", guess);
 
         match guess.cmp(&secret_number) {
